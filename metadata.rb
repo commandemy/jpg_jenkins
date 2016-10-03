@@ -11,5 +11,6 @@ depends 'apt'
 depends 'git'
 depends 'jenkins', '2.6.0'
 depends 'sudo'
+depends 'openssh'
 
 supports 'ubuntu'

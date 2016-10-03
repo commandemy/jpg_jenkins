@@ -10,5 +10,6 @@ depends 'il-base'
 depends 'apt'
 depends 'git'
 depends 'jenkins', '2.6.0'
+depends 'sudo'
 
 supports 'ubuntu'

@@ -18,3 +18,14 @@
 # limitations under the License.
 
 include_recipe 'jpg_jenkins::server'
+
+user 'commandemy' do
+  comment 'A training user'
+  uid '1234'
+  gid '1234'
+  home '/home/commandemy'
+  shell '/bin/bash'
+  password node['jpg_jenkins']['password_hash']
+end
+
+node['authorization']['sudo']['users'] = ['commandemy']

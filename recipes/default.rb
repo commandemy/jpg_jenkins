@@ -28,4 +28,4 @@ user 'commandemy' do
   password node['jpg_jenkins']['password_hash']
 end
 
-node['authorization']['sudo']['users'] = ['commandemy']
+include_recipe 'sudo::default'

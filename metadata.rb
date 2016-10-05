@@ -12,5 +12,6 @@ depends 'git'
 depends 'jenkins', '2.6.0'
 depends 'sudo'
 depends 'openssh'
+depends 'poise-python', '~> 1.5.1'
 
 supports 'ubuntu'

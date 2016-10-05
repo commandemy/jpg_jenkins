@@ -1,0 +1,42 @@
+{
+  "name": "il-base",
+  "version": "0.4.4",
+  "description": "Installs/Configures il_base",
+  "long_description": "# il-base cookbook\n\nIL-Base is a application cookbook around base cookbooks and recipes we want to include in our environments.\n\nSome are default as we need them to be on our nodes, some are attribute driven so we can specify if we want to include them.\n\n## Supported Platforms\n\n- Ubuntu\n\n## Attributes\n\n## default.rb\n\nInlcude the [apt](https://github.com/opscode-cookbooks/apt) cookbook\n\n```ruby\ndefault['base']['include']['apt'] = true\n```\n\nInclude the [chef_client](https://github.com/opscode-cookbooks/chef-client) cookbook\n\n```ruby\ndefault['base']['include']['chef-client'] = false\n```\n\nInclude a [simple report handler](http://jtimberman.housepub.org/blog/2011/04/24/a-simple-report-handler/) which outputs updated resources to stdout\n\n```ruby\ndefault['base']['include']['simple_report_handler'] = true\n```\n\nInclude the [hipchat handler](https://github.com/cwjohnston/chef-hipchat)\n\n```ruby\ndefault['base']['include']['hipchat_handler'] = false\n```\n\nInclude the [slack handler](https://github.com/iteh/chef-slack_handler)\n\n```ruby\ndefault['base']['include']['slack_handler'] = false\n```\n\nInclude [chef-sugar](https://github.com/sethvargo/chef-sugar)\n\n```ruby\ndefault['base']['include']['chef-sugar'] = true\n```\n\nInclude the [ntp](https://github.com/opscode-cookbooks/ntp/) cookbook\n\n```ruby\ndefault['base']['include']['ntp'] = true\n```\n\nInclude motd\n\n```ruby\ndefault['base']['include']['motd'] = true\ndefault['base']['motd']['operation_tools'] = true\n```\n\nInclude some operations tools\n\n```ruby\ndefault['base']['include']['operation_tools'] = true\ndefault['base']['operation-tools'] = %w( htop iotop apachetop atop nmon dstat iftop nload )\n```\n\nInclude [build_essential](https://github.com/opscode-cookbooks/build-essential) cookbook\n\n```ruby\ndefault['base']['include']['build_essential'] = false\n```\n\n\n## Usage\n\n### il-base::default\n\nInclude `il-base` in your node's `run_list`:\n\n```json\n{\n  \"run_list\": [\n    \"recipe[il-base::default]\"\n  ]\n}\n```\n\n## Contributing\n\n1. Fork the repository on Github\n2. Create a named feature branch (i.e. `add-new-recipe`)\n3. Write you change\n4. Write tests for your change (if applicable)\n5. Run the tests, ensuring they all pass\n6. Submit a Pull Request\n\n## License and Authors\n\nAuthor:: Edmund Haselwanter (me@ehaselwanter.com)\n",
+  "maintainer": "Edmund Haselwanter",
+  "maintainer_email": "me@ehaselwanter.com",
+  "license": "Apache v2.0",
+  "platforms": {
+    "ubuntu": ">= 12.04"
+  },
+  "dependencies": {
+    "apt": ">= 0.0.0",
+    "ubuntu": ">= 0.0.0",
+    "build-essential": ">= 0.0.0",
+    "ntp": ">= 0.0.0",
+    "chef-client": ">= 0.0.0",
+    "omnibus_updater": ">= 0.0.0",
+    "chef-sugar": ">= 0.0.0",
+    "chef_handler": ">= 0.0.0",
+    "hipchat": ">= 0.0.0",
+    "slack_handler": ">= 0.0.0",
+    "vim": ">= 0.0.0",
+    "tmux": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  }
+}

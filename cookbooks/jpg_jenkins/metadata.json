@@ -1,0 +1,48 @@
+{
+  "name": "jpg_jenkins",
+  "description": "Installs/Configures jpg_jenkins",
+  "long_description": "# jpg_jenkins\n\nA Jenkins cookbook for our Jenkins-Python-Git training",
+  "maintainer": "Infralovers",
+  "maintainer_email": "team@infralovers.com",
+  "license": "team@infralovers.com",
+  "platforms": {
+    "ubuntu": ">= 0.0.0"
+  },
+  "dependencies": {
+    "il-base": ">= 0.0.0",
+    "apt": ">= 0.0.0",
+    "git": ">= 0.0.0",
+    "jenkins": "= 2.6.0",
+    "sudo": ">= 0.0.0",
+    "openssh": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.0.1",
+  "source_url": "",
+  "issues_url": "",
+  "privacy": false,
+  "chef_versions": [
+
+  ],
+  "ohai_versions": [
+
+  ],
+  "gems": [
+
+  ]
+}

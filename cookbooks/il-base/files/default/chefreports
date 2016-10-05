@@ -1,0 +1,78 @@
+#!/opt/chef/embedded/bin/ruby
+#
+# Copyright (C) 2014 x-ion GmbH
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+require 'mixlib/cli'
+require 'chef'
+require 'chef/node'
+require 'chef/resource'
+require 'chef/log'
+require 'chef/json_compat'
+
+require 'logger'
+require 'mixlib/log'
+
+# Class Log
+class Log
+  extend Mixlib::Log
+end
+
+# Class Report
+class Report
+  include Mixlib::CLI
+  option :reports_dir,
+    :short => '-r DIR',
+    :long  => '--report DIR',
+    :description => 'The directory containing reports',
+    :default => '/var/chef/reports'
+
+  option :log_level,
+    :short => '-l LEVEL',
+    :long  => '--log_level LEVEL',
+    :description => 'Set the log level (debug, info)',
+    :default => :info,
+    :proc => proc { |l| l.to_sym }
+
+  option :help,
+    :short        => '-h',
+    :long         => '--help',
+    :description  => 'Show this message',
+    :on           => :tail,
+    :boolean      => true,
+    :show_options => true,
+    :exit         => 0
+end
+
+cli = Report.new
+cli.parse_options
+
+Mixlib::Log::Formatter.show_time = false
+Log.level = cli.config[:log_level]
+
+reports = Dir.glob(File.join(cli.config[:reports_dir], 'chef-run-report-*.json'))
+reports.each do |json|
+  r = Chef::JSONCompat.from_json(File.read(json))
+  time = r['start_time']
+  Log.info "#{time} run started"
+
+  r['updated_resources'].each do |res|
+    Log.info " #{time}    #{res} #{res.action}"
+    Log.debug "#{time}              #{res.cookbook_name}::#{res.recipe_name}"
+    Log.debug "#{time}              elapsed #{res.elapsed_time}"
+    Log.debug "#{time}              source #{res.source_line}"
+  end
+
+  Log.info "#{r['end_time']} run ended"
+end

@@ -28,3 +28,4 @@ node.default['jenkins']['master']['jvm_options'] = '-Djenkins.install.runSetupWi
 node.default['jenkins']['executor']['timeout'] = 240
 
 include_recipe 'jenkins::master'
+include_recipe "#{cookbook_name}::_python"

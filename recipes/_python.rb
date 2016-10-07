@@ -17,7 +17,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+package 'python-dev'
+package 'libffi-dev'
+package 'libssl-dev'
+package 'libxml2-dev'
+package 'libxslt1-dev'
+package 'libjpeg8-dev'
+package 'zlib1g-dev'
 package 'python-pip'
+
 execute 'pip install --upgrade pip'
 
 python_package 'pylint'
@@ -25,5 +33,7 @@ python_package 'behave'
 python_package 'selenium'
 python_package 'requests'
 python_package 'pytest'
+python_package 'pytest-html'
+python_package 'paramiko'
 
 package 'phantomjs'

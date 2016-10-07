@@ -26,5 +26,9 @@ user 'commandemy' do
   password node['jpg_jenkins']['password_hash']
 end
 
+directory '/home/commandemy' do
+  owner 'commandemy'
+end
+
 include_recipe 'sudo::default'
 include_recipe 'openssh::default'

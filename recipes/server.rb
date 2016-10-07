@@ -21,8 +21,8 @@ include_recipe "#{cookbook_name}::_base"
 
 # Install Jenkins and dependencies
 node.default['jenkins']['master']['install_method'] = 'war'
-node.default['jenkins']['master']['source'] = 'http://mirrors.jenkins-ci.org/war/2.12/jenkins.war'
-node.default['jenkins']['master']['checksum'] = '65e51c0dbd2915f4b37f7daebfa561b49c279ab4bc04997011db0539b77d954d'
+node.default['jenkins']['master']['source'] = 'http://mirrors.jenkins-ci.org/war-stable/2.19.1/jenkins.war'
+node.default['jenkins']['master']['checksum'] = 'eb0484ab9a405d663724ec2a678ee648b7995b7b1b1021bf85dcddf7d2b2f577'
 node.default['jenkins']['master']['jvm_options'] = '-Djenkins.install.runSetupWizard=false'
 
 node.default['jenkins']['executor']['timeout'] = 240
